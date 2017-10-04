@@ -50,7 +50,7 @@ export class NavMenu extends React.Component<NavMenuPorpus, NavMenuState> {
                             </Link>
                             </li>
                             <li>
-                                <Link to={'/presscount'} activeClassName='active'>
+                                <Link to={'/zpc'} activeClassName='active'>
                                     <span className='glyphicon glyphicon-education'></span> 技术规范
                             </Link>
                             </li>
