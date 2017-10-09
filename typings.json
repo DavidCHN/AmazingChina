@@ -1,0 +1,6 @@
+{
+  "globalDevDependencies": {
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111",
+    "require": "registry:dt/require#2.1.20+20160919185614"
+  }
+}

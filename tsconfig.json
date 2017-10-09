@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "moduleResolution": "node",
     "target": "es6",
-    "jsx": "preserve",
+    "jsx": "react",
     "sourceMap": true,
     "skipDefaultLibCheck": true,
     "allowSyntheticDefaultImports": true,

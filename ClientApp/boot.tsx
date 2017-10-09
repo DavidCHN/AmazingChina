@@ -1,5 +1,6 @@
 import './css/site.css';
 import 'antd/dist/antd.min.css';
+import 'leaflet/dist/leaflet.css';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';

@@ -1,0 +1,39 @@
+.ant-menu-dark .ant-menu-item:hover,
+ {
+  background-color:#37424F;
+  color: #fff;
+}
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
+  background-color:#609ee9;
+}
+
+.ant-menu-dark  .ant-menu-item{
+  background-color: #232d3c;
+  color:#fff;
+}
+
+.ant-menu-dark .ant-menu-submenu-title {
+  color:#fff;
+  font-size: 14px;
+}
+
+.ant-menu-dark .ant-menu-submenu-title:hover{
+    color:#609ee9;
+}
+
+.custom-filter-dropdown {
+  padding: 8px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+}
+
+.custom-filter-dropdown input {
+  width: 130px;
+  margin-right: 8px;
+}
+
+.highlight {
+  color: #f50;
+}
