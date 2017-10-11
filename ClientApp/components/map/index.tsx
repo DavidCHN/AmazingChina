@@ -28,8 +28,8 @@ export class Map extends React.Component<MapProps, MapStates>{
 
     componentDidMount(){
         this.geoMap = new LeafLetMapExt(this.refs.map, {
-            center: [36, 120],
-            zoom: 7
+            center: [36, 105],
+            zoom: 4
         });
         this.props.onMapCreated(this.geoMap);
     }
