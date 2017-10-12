@@ -1,6 +1,6 @@
 import "../css/layer.css";
 import * as React from "react";
-import { Button,Select } from "antd";
+import { Button, Select } from "antd";
 import L from 'leaflet';
 import { LeafLetMapExt } from "./map/leafletMapExt";
 import { Map, MapMessageArgs } from "./map";
@@ -15,6 +15,7 @@ export interface BeautifulCountryProps { }
 export interface BeautifulCountryState {
     isMapCreated?: boolean;//map是否创建完成
     map?: LeafLetMapExt;//map
+    layer?: any;
 }
 
 export class BeautifulCountry extends React.Component<BeautifulCountryProps, BeautifulCountryState>{
@@ -25,12 +26,16 @@ export class BeautifulCountry extends React.Component<BeautifulCountryProps, Bea
             isMapCreated: false,
             map: this.geoMap,
         };
-        
+
     }
 
 
     componentDidMount() {
-        L.esri.basemapLayer('Topographic').addTo(this.geoMap);
+        /*L.esri.tiledMapLayer({
+            url: "http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer"
+        }).addTo(this.geoMap);*/
+        let layer = L.esri.basemapLayer('Streets').addTo(this.geoMap);
+        this.setState({ layer: layer });
     }
 
     onMapCreatedHandler(geoMap: LeafLetMapExt) {
@@ -46,31 +51,28 @@ export class BeautifulCountry extends React.Component<BeautifulCountryProps, Bea
         //console.log(value);
     }
 
-    setBasemap(basemap: any) {
-        var layer = L.esri.basemapLayer('Topographic');
-        var layerLabels;
+    setBasemap(basemap) {
+        let layer = this.state.layer;
         if (layer) {
             this.geoMap.removeLayer(layer);
-          }
-      
-          layer = L.esri.basemapLayer(basemap);
-      
-          this.geoMap.addLayer(layer);
-      
-          if (layerLabels) {
-            this.geoMap.removeLayer(layerLabels);
-          }
-      
-          if (basemap === 'ShadedRelief'
-           || basemap === 'Oceans'
-           || basemap === 'Gray'
-           || basemap === 'DarkGray'
-           || basemap === 'Imagery'
-           || basemap === 'Terrain'
-         ) {
-            layerLabels = L.esri.basemapLayer('ImageryLabels');
-            this.geoMap.addLayer(layerLabels);
-          }
+        }
+        layer = L.esri.basemapLayer(basemap);
+        this.setState({ layer: layer });
+
+        this.geoMap.addLayer(layer);
+        /*if(basemap==="Topographic"){
+         L.esri.tiledMapLayer({
+             url: "http://server.arcgisonline.com/arcgis/rest/services/World_Shaded_Relief/MapServer"
+           }).addTo(this.geoMap);
+        }else if(basemap==="Imagery"){
+         L.esri.tiledMapLayer({
+             url: "http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer"
+           }).addTo(this.geoMap);
+        }else{
+         L.esri.tiledMapLayer({
+             url: "http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunityOnlyENG/MapServer"
+           }).addTo(this.geoMap);
+        }*/
     }
 
     render() {
@@ -78,15 +80,10 @@ export class BeautifulCountry extends React.Component<BeautifulCountryProps, Bea
             <div>
                 <Map ref="map" onMapCreated={this.onMapCreatedHandler.bind(this)} ></Map>
                 <div id="basemaps-wrapper" className="leaflet-bar">
-                    <Select defaultValue="Topographic" style={{ width: 200 }} onChange={this.handleChange.bind(this)}>
-                        <Option value="Topographic">地形</Option>
+                    <Select defaultValue="Streets" style={{ width: 200 }} onChange={this.handleChange.bind(this)}>
                         <Option value="Streets">街道</Option>
-                        <Option value="NationalGeographic">国家地理</Option>
-                        <Option value="Oceans">海洋</Option>
-                        <Option value="Gray">灰阶</Option>
-                        <Option value="DarkGray">黑灰</Option>
+                        <Option value="Topographic">地形</Option>
                         <Option value="Imagery">影像</Option>
-                        <Option value="ShadedRelief">地形阴影</Option>
                     </Select>
                 </div>
             </div>
