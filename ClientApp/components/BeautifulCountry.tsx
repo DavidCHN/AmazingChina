@@ -31,9 +31,6 @@ export class BeautifulCountry extends React.Component<BeautifulCountryProps, Bea
 
 
     componentDidMount() {
-        /*L.esri.tiledMapLayer({
-            url: "http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer"
-        }).addTo(this.geoMap);*/
         let layer = L.esri.basemapLayer('Streets').addTo(this.geoMap);
         this.setState({ layer: layer });
     }
@@ -58,21 +55,7 @@ export class BeautifulCountry extends React.Component<BeautifulCountryProps, Bea
         }
         layer = L.esri.basemapLayer(basemap);
         this.setState({ layer: layer });
-
         this.geoMap.addLayer(layer);
-        /*if(basemap==="Topographic"){
-         L.esri.tiledMapLayer({
-             url: "http://server.arcgisonline.com/arcgis/rest/services/World_Shaded_Relief/MapServer"
-           }).addTo(this.geoMap);
-        }else if(basemap==="Imagery"){
-         L.esri.tiledMapLayer({
-             url: "http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer"
-           }).addTo(this.geoMap);
-        }else{
-         L.esri.tiledMapLayer({
-             url: "http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunityOnlyENG/MapServer"
-           }).addTo(this.geoMap);
-        }*/
     }
 
     render() {
@@ -87,7 +70,6 @@ export class BeautifulCountry extends React.Component<BeautifulCountryProps, Bea
                     </Select>
                 </div>
             </div>
-
         );
     }
 

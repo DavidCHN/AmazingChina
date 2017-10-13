@@ -23,7 +23,7 @@ export class GeoMenu extends React.Component<GeoMenuProps, GeoMenuState> {
         super(props);
         this.state = {
             openKeys: [],
-            currentKey: "BeautifulCountry"
+            currentKey: ["China"]
         };
     }
 
@@ -34,22 +34,24 @@ export class GeoMenu extends React.Component<GeoMenuProps, GeoMenuState> {
 
     private onClickHandler(info) {
         this.props.onClick(info.key);
-        this.setState({ currentKey: info.key });
+        this.setState({ currentKey: [info.key] });
     }
 
     private options = [{
-        key: "01",
-        title: "辉煌中国主题展",
-        icon: "github",
-        children: [{
-            key: "BeautifulCountry",
-            title: "大好河山",
-            icon: "user"
-        }, {
-            key: "AmazingChina",
-            title: "辉煌十年",
-            icon: "team"
-        }]
+        children: [
+            {
+                key: "China",
+                title: "辉煌中国主题展",
+                icon: "github",
+            }, {
+                key: "BeautifulCountry",
+                title: "大好河山",
+                icon: "user"
+            }, {
+                key: "AmazingChina",
+                title: "辉煌十年",
+                icon: "team"
+            }]
     }
     ];
 
@@ -94,18 +96,14 @@ export class GeoMenu extends React.Component<GeoMenuProps, GeoMenuState> {
                     {
                         this.options.map((option, i) => {
                             return (
-                                <SubMenu key={option.key} title={<span><Icon type={option.icon} />{option.title}</span>}>
-                                    {
-                                        (option.children).map((children, j) => {
-                                            return (
-                                                <Menu.Item key={children.key}>
-                                                    {<Icon type={children.icon} />}
-                                                    {children.title}
-                                                </Menu.Item>
-                                            );
-                                        })
-                                    }
-                                </SubMenu>
+                                (option.children).map((children, j) => {
+                                    return (
+                                        <Menu.Item key={children.key}>
+                                            {<Icon type={children.icon} />}
+                                            {children.title}
+                                        </Menu.Item>
+                                    );
+                                })
                             );
                         })
                     }
