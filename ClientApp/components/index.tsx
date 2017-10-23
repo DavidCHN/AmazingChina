@@ -13,16 +13,16 @@ export class China extends React.Component<ChinaProps, ChinaState>{
 
                 <Carousel autoplay>
                     <div style={{ position: "relative", height: browserHeight - 50, width: "600px", background: "#364d79" }}>
-                        <img style={{ height: "100%", width: "100%" }} src={require("./img/zhongshanqiao.jpg")} />
+                        <img style={{ height: "100%", width: "100%" }} src={require("./img/01.jpg")} />
                     </div>
                     <div style={{ position: "relative", height: browserHeight - 50, width: "600px", background: "#364d79" }}>
-                        <img style={{ height: "100%", width: "100%" }} src={require("./img/hhmq.jpg")} />
+                        <img style={{ height: "100%", width: "100%" }} src={require("./img/02.jpg")} />
                     </div>
                     <div style={{ position: "relative", height: browserHeight - 50, width: "600px", background: "#364d79" }}>
-                        <img style={{ height: "100%", width: "100%" }} src={require("./img/tulugou.jpg")} />
+                        <img style={{ height: "100%", width: "100%" }} src={require("./img/03.jpg")} />
                     </div>
                     <div style={{ position: "relative", height: browserHeight - 50, width: "600px", background: "#364d79" }}>
-                        <img style={{ height: "100%", width: "100%" }} src={require("./img/shuicheyuan.jpg")} />
+                        <img style={{ height: "100%", width: "100%" }} src={require("./img/04.jpg")} />
                     </div>
                 </Carousel>
             </div>
