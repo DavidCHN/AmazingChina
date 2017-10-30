@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AmazingChina.Models;
+using AmazingChina.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -30,6 +30,7 @@ namespace WebApplicationBasic {
         public void ConfigureServices (IServiceCollection services) {
             // Add framework services.
             services.AddMvc ();
+            services.AddDbContext<SchoolContext>(option=>option.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
         
             
         }
