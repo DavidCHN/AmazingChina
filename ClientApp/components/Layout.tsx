@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavMenu }from './NavMenu';
+import { GeoMenu }from './geoMenu';
 
 export interface LayoutProps {
     body: React.ReactElement<any>;
@@ -10,7 +10,7 @@ export class Layout extends React.Component<LayoutProps, void> {
         return <div className='container-fluid'>
             <div className='row'>
                 <div className='col-sm-3'>
-                   <NavMenu />
+                   <GeoMenu />
                 </div>
                 <div className='col-sm-9'>
                     {this.props.body}

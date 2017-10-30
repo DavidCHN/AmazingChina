@@ -123,6 +123,7 @@ export class BeautifulCountry extends React.Component<BeautifulCountryProps, Bea
                         <Option value="Streets">街道</Option>
                         <Option value="Topographic">地形</Option>
                         <Option value="Imagery">影像</Option>
+                        <Option value="tianditu">天地图</Option>
                     </Select>
                 </div>
             </div>

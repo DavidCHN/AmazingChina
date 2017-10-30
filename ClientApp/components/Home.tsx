@@ -53,7 +53,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
                 }}>
                     <GeoMenu onClick={this.menuOnClickHandler.bind(this)} />
                 </div>
-                <div style={{ backgroundColor: "#D9DEE4", padding: "0px", position: "absolute", float: "left", left: "230px", height: height, top: "50px", bottom: "0px", right: "0px" }}>
+                <div style={{  padding: "0px", position: "absolute", float: "left", left: "230px", height: height, top: "50px", bottom: "0px", right: "0px" }}>
                     {this.state.currentModule}
                 </div>
             </div>

@@ -33,6 +33,7 @@
   "dependencies": {
     "@types/esri-leaflet": "^2.1.1",
     "antd": "^2.13.4",
+    "echarts": "^3.7.2",
     "esri-leaflet": "^2.1.1",
     "leaflet": "^1.2.0"
   }
